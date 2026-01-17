@@ -1,90 +1,61 @@
 # Water Data Transformer
 
-A **C# project** that automates the transformation of water data from Excel files into a structured format for analysis and reporting.
+![.NET](https://img.shields.io/badge/.NET-Framework-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
 ## 🔹 Overview
 
-This tool reads **raw water data** from Excel files, performs daily, monthly, yearly, and hydrological calculations, and outputs a clean, structured Excel file.  
+**Water Data Transformer** is a C# project for transforming and processing water data from Excel files using Microsoft Excel Interop.
 
-It is ideal for **hydrology engineers, data analysts, and environmental researchers**.
+It automates the extraction, calculation, and transformation of water-related data (daily, monthly, yearly, hydrological year) from source Excel files into a structured format suitable for analysis or reporting.
+
+Ideal for **hydrology engineers, data analysts, and environmental researchers**.
 
 ---
 
 ## 🔹 Features
 
-- **Automatic Excel processing** using C# and Microsoft Excel Interop.
-- Calculates:
-  - Daily values
-  - Monthly aggregation
-  - Yearly totals
-  - Hydrological year values
-- Saves the transformed data into a **ready-to-use Excel file**.
-- Handles missing data safely.
-- Uses a **template Excel file** to maintain structure.
+- Reads source Excel files containing raw water data.
+- Performs **daily, monthly, yearly, and hydrological year calculations**.
+- Outputs a **transformed Excel file** ready for further analysis.
+- Modular C# design with separate methods for each calculation type.
+- Handles missing data safely with default values.
 
 ---
 
-## 🔹 Technology Stack
+## 🔹 Technologies Used
 
 - **C# (.NET Framework)**
 - **Microsoft Excel Interop**
-- **Windows Forms (for GUI)**
-- **Visual Studio**
+- **Visual Studio (recommended)**
 
 ---
 
 ## 🔹 How It Works
 
-1. **Open Source File:** The program asks you to select your raw Excel file.  
-2. **Read & Transform Data:**  
-   - Daily, monthly, yearly, and hydrological year calculations are performed automatically.  
-   - Missing data is handled gracefully.  
-3. **Write to Template:** Data is written into a template Excel file with pre-defined sheets for days, months, years, and hydrological years.  
-4. **Save Output:** The transformed Excel file is saved in the same folder as the source with a `_Transformed` suffix.
-
----
-
-## 🔹 Example Output
-
-### 1️⃣ Daily Data (`Days` sheet)
-| Date       | Value (m³) |
-|------------|------------|
-| 2026-01-01 | 120        |
-| 2026-01-02 | 115        |
-
-### 2️⃣ Monthly Data (`Months` sheet)
-| Month-Year | Total (m³) |
-|------------|------------|
-| Jan-2026   | 3500       |
-| Feb-2026   | 3620       |
-
-### 3️⃣ Yearly Data (`Years` sheet)
-| Year | Total (m³) |
-|------|------------|
-| 2026 | 43000      |
-| 2027 | 45000      |
-
-### 4️⃣ Hydrological Year (`Hydro Years` sheet)
-| Year-Range | Total (m³) |
-|------------|------------|
-| 2025-2026  | 44000      |
+1. Open the **source Excel file**.
+2. Read each row of data and perform calculations:
+   - **Daily values**
+   - **Monthly values**
+   - **Yearly values**
+   - **Hydrological year values**
+3. Write the transformed data to a **new Excel file** with the same template structure.
+4. Save the file with a `_Transformed` suffix in the same folder as the source.
 
 ---
 
 ## 🔹 Screenshots
 
+**Open File Dialog**  
 ![Open File Dialog](./images/openfile.png)
-*Select the Excel file to transform*
 
+**Transformation Progress**  
 ![Transformation Progress](./images/progress.png)
-*Shows progress of daily/monthly/yearly calculations*
 
+**Resulting Excel Sheet**  
 ![Result Excel Sheet](./images/result.png)
-*Output template with structured data*
-
-> **Tip:** Screenshots are optional but make your repository look professional.
 
 ---
 
@@ -99,8 +70,8 @@ namespace WaterDataTransformerDemo
     {
         static void Main(string[] args)
         {
-            string sourcePath = @"C:\WaterData\datapass.xls";
-            string templatePath = @"C:\WaterData\template.xlsx";
+            string sourcePath = @"./data/datapass.xls";
+            string templatePath = @"./data/template.xlsx";
 
             ExcelTransformer transformer = new ExcelTransformer(sourcePath, templatePath);
             transformer.Transform();

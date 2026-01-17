@@ -1,7 +1,8 @@
 /WaterDataTransformer
 │
-├─ ExcelTransformer.cs      # Main transformer class with calculation methods
+├─ ExcelTransformer.cs      # Core transformer logic
 ├─ Program.cs               # Example usage
-├─ datapass.xls             # Example source file (optional)
-├─ template.xlsx            # Template file for transformed data
-└─ README.md                # Project documentation
+├─ datapass.xls             # Sample source file
+├─ template.xlsx            # Template for output
+├─ images/                  # Screenshots folder
+└─ README.md                # Documentation

@@ -58,3 +58,27 @@ This application provides a reliable automated workflow that:
 ## Author
 Khaldoon Nseir  
 Hydrology & Software Engineering
+
+---
+
+## How It Works
+
+1. The user prepares an Excel file containing daily water balance values.
+2. The application reads the data row by row.
+3. Time-based aggregation rules are applied:
+   - Monthly totals
+   - Yearly totals
+   - Hydrological year totals
+4. Results are written back to Excel in structured tables.
+
+The processing logic is fully automated and does not require manual calculations.
+
+---
+
+## Input
+- Excel file (.xls / .xlsx)
+- Daily time-series water balance data
+
+## Output
+- Excel reports with aggregated results
+- Ready for analysis and decision-making
